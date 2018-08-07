@@ -3,7 +3,7 @@
     <v-container fluid>
       <v-carousel>
         <v-carousel-item
-          v-for="ad in ads"
+          v-for="ad in promoAds"
           :key="ad.id"
           :src="ad.imageSrc"
         >
@@ -50,27 +50,14 @@
 <script>
     export default {
       data () {
-        return {
-          ads: [
-            {title: 'wq erw',
-              description: 'qwertyghnfbdsf',
-              promo: false,
-              imageSrc: 'https://cdn.vuetifyjs.com/images/carousel/squirrel.jpg',
-              id: '123'
-            },
-            {title: 'wq erwolikmujnyhbtg',
-              description: 'qwertyghnfbdsfwaesrdfghjkhmgnfbd',
-              promo: false,
-              imageSrc: 'https://cdn.vuetifyjs.com/images/carousel/planet.jpg',
-              id: '1234'
-            },
-            {title: 'wq erwalallalalalala',
-              description: '[poiujhgfd',
-              promo: false,
-              imageSrc: 'https://cdn.vuetifyjs.com/images/carousel/sky.jpg',
-              id: '12345'
-            },
-          ]
+        return {}
+      },
+      computed: {
+        promoAds () {
+          return this.$store.getters.promoAds
+        },
+        ads () {
+          return this.$store.getters.ads
         }
       }
     }
