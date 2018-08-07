@@ -78,9 +78,10 @@
           const ad = {
             title: this.title,
             description: this.description,
-            promo: this.promo
+            promo: this.promo,
+            imageSrc: 'https://media.wired.com/photos/59b0197718550672e9fbdd40/master/w_2400,c_limit/Lamborghini-Aventador-Roadster-TA.jpg'
           }
-          console.log(ad)
+          this.$store.dispatch('createAd', ad)
         }
       }
     }
