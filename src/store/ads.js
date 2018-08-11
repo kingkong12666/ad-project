@@ -87,7 +87,7 @@ export default {
       commit('clearError')
       commit('setLoading', true)
       try {
-        await fb.database().ref('ads').update({
+        await fb.database().ref('ads').child(id).update({
           title, description
         })
         commit('updateAd', {
@@ -111,10 +111,8 @@ export default {
         return ad.promo
       })
     },
-    myAds (state, getters) {
-      return state.ads.filter(ad => {
-        return ad.ownerId === getters.user.id
-      })
+    myAds (state) {
+      return state.ads
     },
     adById (state) {
       return adId => {
