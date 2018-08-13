@@ -20,12 +20,12 @@
                 type="text"
                 v-model="name"
               ></v-text-field>
-              <v-textarea
+              <v-text-field
                 name="phone"
                 label="Your phone"
                 type="text"
                 v-model="phone"
-              ></v-textarea>
+              ></v-text-field>
             </v-card-text>
           </v-flex>
         </v-layout>
