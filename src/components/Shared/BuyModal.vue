@@ -14,18 +14,20 @@
         <v-layout row>
           <v-flex xs12>
             <v-card-text>
-              <v-text-field
-                name="name"
-                label="Your name"
-                type="text"
-                v-model="name"
-              ></v-text-field>
-              <v-text-field
-                name="phone"
-                label="Your phone"
-                type="text"
-                v-model="phone"
-              ></v-text-field>
+              <v-form ref="form" v-model="valid" validation>
+                <v-text-field
+                  name="name"
+                  label="Your name"
+                  type="text"
+                  v-model="name"
+                ></v-text-field>
+                <v-text-field
+                  name="phone"
+                  label="Your phone"
+                  type="number"
+                  v-model="phone"
+                ></v-text-field>
+              </v-form>
             </v-card-text>
           </v-flex>
         </v-layout>
@@ -43,7 +45,7 @@
               <v-btn
                 class="success"
                 @click="onSave"
-                :disabled="localLoading"
+                :disabled="localLoading || !valid"
                 :loading="localLoading"
               >Buy it</v-btn>
             </v-card-actions>
@@ -60,6 +62,7 @@
     props: ['ad'],
     data () {
       return {
+        valid: false,
         modal: false,
         name: '',
         phone: '',
