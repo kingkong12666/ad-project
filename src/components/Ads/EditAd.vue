@@ -1,6 +1,6 @@
 <template>
   <v-dialog width="400px" v-model="modal">
-    <v-btn class="warning mr-3" flat slot="activator">Edit</v-btn>
+    <v-btn class="warning mr-3" flat slot="activator" v-if="this.$store.getters.userLogged">Edit</v-btn>
     <v-card>
       <v-container>
         <v-layout row>
